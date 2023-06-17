@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class UpozillaStockModel extends Model
 {
-     protected $fillable = [
+      protected $fillable = [
 
-        'name', 'date','opening_balance','current_balance'
+        'upozilla_id','date','opening_balance','current_balance'
 
     ];
 }

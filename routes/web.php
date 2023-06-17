@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\RegistrationController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\TikaController;
+use App\Http\Controllers\TikaStockController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('tika','TikaController');
     Route::get('/give-tika/',[TikaController::class, 'tikaGive'])->name('tika_given');
     Route::post('/give-tika/post/',[TikaController::class, 'tikaGivePost'])->name('tika_given_post');
+  
+    Route::get('/union/stock/',[TikaStockController::class, 'unionStockShow'])->name('unionStockShow');
+    Route::post('/union/stock/add/',[TikaStockController::class, 'unionStockAdd'])->name('unionStockAdd');
+    Route::get('/upozilla/stock/',[TikaStockController::class, 'upozillaStockShow'])->name('upozillaStockShow');
+    Route::post('/ward/stock/add/',[TikaStockController::class, 'upozillaStockAdd'])->name('upozillaStockAdd');
+      Route::get('/ward/stock/',[TikaStockController::class, 'wardStockShow'])->name('wardStockShow');
+    Route::post('/ward/stock/add/',[TikaStockController::class, 'wardStockAdd'])->name('wardStockAdd');
 });
 Auth::routes();
 

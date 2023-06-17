@@ -8,7 +8,12 @@
             <div class="col-md-8">
             <!-- general form elements -->
             <div class="card card-primary">
-                <!-- <a  href="{{ route('admin.index') }}"> Back</a> -->
+                @if($tika_balance<=0)
+              <div class="alert alert-block alert-danger mt-2">
+                  <i class=" fa fa-check cool-green "></i>
+                  Tika Stock Not Available
+              </div>
+              @else
               <div class="card-header">
 
                 <h3 class="card-title">Give Tika</h3>
@@ -39,6 +44,11 @@
                       @endforeach
                     </select>
                   </div>
+                  <div class="form-group">
+                    <label for="dose_number">Dose Number</label>
+                    <input  autocomplete="off" type="number" class="form-control" id="dose_number" name="dose_number" placeholder="Dose Number" required>
+    
+                  </div >
                  <div class="form-group">
                     <label for="datepicker">Next Date</label>
                     <input id="datepicker" autocomplete="off" type="text" class="form-control" id="name" name="next_date" placeholder="Date" required>
@@ -52,6 +62,7 @@
               </form>
              
             </div>
+            @endif
             <!-- /.card -->
                 </div>
             </div>

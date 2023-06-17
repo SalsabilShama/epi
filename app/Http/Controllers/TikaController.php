@@ -9,6 +9,7 @@ use App\UserTika;
 use App\TikaExpected;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use App\WardStock;
 class TikaController extends Controller
 {
     /**
@@ -131,9 +132,10 @@ class TikaController extends Controller
 
     public function tikaGive()
     {
+        $tika_balance = WardStock::where('ward_id', Auth::user()->ward_id)->first()->current_balance;
         $tikas = Tika::all();
         $users = User::where('user_type', 4)->get();
-       return view('admin.user_tika.give-tika', compact('tikas', 'users'));
+       return view('admin.user_tika.give-tika', compact('tikas', 'users', 'tika_balance'));
     }
 
     public function tikaGivePost(Request $request)
@@ -147,23 +149,35 @@ class TikaController extends Controller
 
         ]);
 
-        $tika = UserTika::create([
-            'tika_id' => $request->input('tika_id'),
-            'user_id' => $request->input('user_id'),
-            'taken_date' => date('Y-m-d'),
-            'added_by' => Auth::user()->id
-        ]);
-        $tika = TikaExpected::create([
-            'upozilla_id' => Auth::user()->upozilla_id,
-            'union_id' => Auth::user()->union_id,
-            'ward_id' => Auth::user()->ward_id,
-            'date' => $request->input('next_date'),
-            'user_id' => $request->input('user_id'),
-            'added_by' => Auth::user()->id
-        ]);
-       
+        $message = '';
+        if  ($tika_balance->current_balance > 0){
+            $tika = UserTika::create([
+                'tika_id' => $request->input('tika_id'),
+                'dose_number' => $request->input('dose_number'),
+                'user_id' => $request->input('user_id'),
+                'taken_date' => date('Y-m-d'),
+                'added_by' => Auth::user()->id
+            ]);
+            $tika = TikaExpected::create([
+                'upozilla_id' => Auth::user()->upozilla_id,
+                'union_id' => Auth::user()->union_id,
+                'ward_id' => Auth::user()->ward_id,
+                'date' => $request->input('next_date'),
+                'user_id' => $request->input('user_id'),
+                'added_by' => Auth::user()->id,
+                'tika_id' => $request->input('tika_id'),
+                'dose_number' => $request->input('dose_number')
+            ]);
+            $tika_balance->current_balance = $tika_balance->current_balance-1;
+            $tika_balance->save();
+            $message = 'Tika Given successfully';
+        }
+        else{
+            $message = 'Tika Stock Not Available';
+        }
+
         return redirect()->route('tika_given')
 
-                        ->with('message','Tika Given successfully');
+                        ->with('message', $message);
     }
 }

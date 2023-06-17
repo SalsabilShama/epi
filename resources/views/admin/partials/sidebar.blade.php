@@ -108,6 +108,36 @@
          
             </ul>
           </li>
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Tika Stock
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('wardStockShow')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ward Stock</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('unionStockShow')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Union Stock</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('upozillaStockShow')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Upozilla Stock</p>
+                </a>
+              </li>
+         
+            </ul>
+          </li>
            <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
