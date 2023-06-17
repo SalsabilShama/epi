@@ -148,7 +148,7 @@ class TikaController extends Controller
             'user_id' => 'required',
 
         ]);
-
+         $tika_balance = WardStock::where('ward_id', Auth::user()->ward_id)->first();
         $message = '';
         if  ($tika_balance->current_balance > 0){
             $tika = UserTika::create([
