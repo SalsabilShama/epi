@@ -26,7 +26,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="{{url('/dashboard')}}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -123,16 +123,34 @@
                   <p>Ward Stock</p>
                 </a>
               </li>
+               <li class="nav-item">
+                <a href="{{route('viewWardUses')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ward Uses</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="{{route('unionStockShow')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Union Stock</p>
                 </a>
               </li>
+               <li class="nav-item">
+                <a href="{{route('viewUnionUses')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Union Uses</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="{{route('upozillaStockShow')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Upozilla Stock</p>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a href="{{route('viewUpozillaUses')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Upozilla Uses</p>
                 </a>
               </li>
          
@@ -151,6 +169,12 @@
                 <a href="{{route('tika_given')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Give Tika</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('wardTikaUsesView')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tika Uses</p>
                 </a>
               </li>
          

@@ -44,8 +44,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/union/stock/add/',[TikaStockController::class, 'unionStockAdd'])->name('unionStockAdd');
     Route::get('/upozilla/stock/',[TikaStockController::class, 'upozillaStockShow'])->name('upozillaStockShow');
     Route::post('/ward/stock/add/',[TikaStockController::class, 'upozillaStockAdd'])->name('upozillaStockAdd');
-      Route::get('/ward/stock/',[TikaStockController::class, 'wardStockShow'])->name('wardStockShow');
+    Route::get('/ward/stock/',[TikaStockController::class, 'wardStockShow'])->name('wardStockShow');
     Route::post('/ward/stock/add/',[TikaStockController::class, 'wardStockAdd'])->name('wardStockAdd');
+
+    Route::get('/ward/tika/uses/view/',[TikaStockController::class, 'wardTikaUsesView'])->name('wardTikaUsesView');
+    Route::post('/ward/tika/uses/add/',[TikaStockController::class, 'wardTikaUsesAdd'])->name('wardTikaUsesAdd');
+
+    Route::get('/view/upozilla/uses/',[TikaStockController::class, 'viewUpozillaUses'])->name('viewUpozillaUses');
+    Route::get('/view/union/uses/',[TikaStockController::class, 'viewUnionUses'])->name('viewUnionUses');
+    Route::get('/view/ward/uses/',[TikaStockController::class, 'viewWardUses'])->name('viewWardUses');
 });
 Auth::routes();
 

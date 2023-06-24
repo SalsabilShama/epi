@@ -9,6 +9,8 @@ use App\Ward;
 use App\WardStock;
 use App\UnionStock;
 use App\UpozillaStockModel;
+use App\TikaUses;
+use Illuminate\Support\Facades\Auth;
 
 class TikaStockController extends Controller
 {
@@ -82,6 +84,55 @@ class TikaStockController extends Controller
         return redirect()->route('upozillaStockShow')
 
                         ->with('message','Stock added successfully');
+        
+    }
+    public function wardTikaUsesView()
+    {
+        $upozillas = Upozilla::all();
+        $unions = Union::all();
+        $wards = Ward::all();
+        return view('admin.stocks.tika-uses-add', compact('upozillas', 'unions', 'wards'));
+        
+    }
+    public function wardTikaUsesAdd(Request $request)
+    {
+        
+        $tika_stock = TikaUses::create(
+            [
+                'upozilla_id' => $request->input('upozilla_id'),
+                'union_id' => $request->input('union_id'),
+                'ward_id' => $request->input('ward_id'),
+                'date' => $request->input('date'),
+                'tika_used' => $request->input('tika_used'),
+                'tika_damage' => $request->input('tika_damage'),
+                'tika_expired' => $request->input('tika_expired'),
+                'added_by' => Auth::user()->id,
+            ]);
+   
+        return redirect()->route('wardTikaUsesView')
+
+                        ->with('message','Uses added successfully');
+        
+    }
+    public function viewUpozillaUses()
+    {
+        $upozilla_id =  Auth::user()->upozilla_id;
+        $upozilla_uses = TikaUses::where('upozilla_id', $upozilla_id)->get();
+        return view('admin.stocks.upozilla-uses-view', compact('upozilla_uses'));
+        
+    }
+    public function viewUnionUses()
+    {
+        $union_id =  Auth::user()->union_id;
+        $union_uses = TikaUses::where('union_id', $union_id)->get();
+        return view('admin.stocks.union-uses-view', compact('union_uses'));
+        
+    }
+    public function viewWardUses()
+    {
+        $ward_id =  Auth::user()->ward_id;
+        $ward_uses = TikaUses::where('ward_id', $ward_id)->get();
+        return view('admin.stocks.ward-uses-view', compact('ward_uses'));
         
     }
 }

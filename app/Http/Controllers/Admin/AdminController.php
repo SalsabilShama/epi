@@ -10,11 +10,19 @@ use Hash;
 use App\Upozilla;
 use App\Union;
 use App\Ward;
+use Illuminate\Support\Facades\Auth;
+use App\TikaUses;
+use App\TikaExpected;
 
 class AdminController extends Controller
 {
     public function index(){
-    	return view('admin.dashboard');
+        $total_uses = TikaUses::where(
+            'upozilla_id', Auth::user()->upozilla_id)->where('union_id' , Auth::user()->union_id)->where('ward_id', Auth::user()->ward_id)->sum('tika_used');
+        $total_expected = TikaExpected::where(
+            'upozilla_id', Auth::user()->upozilla_id)->where('union_id' , Auth::user()->union_id)->where('ward_id', Auth::user()->ward_id)->get()->count();
+        $total_user_register = User::where('user_type', 4)->count();
+    	return view('admin.dashboard', compact('total_user_register', 'total_uses', 'total_expected'));
     }
     public function showAdminView(Request $request){
     	$admins = User::where('user_type','!=', 4)->get();

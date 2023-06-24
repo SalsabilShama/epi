@@ -29,9 +29,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{$total_user_register}}</h3>
 
-                <p>New Orders</p>
+                <p>Register User</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -39,15 +39,14 @@
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          @can('upozilla-stock-list')
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>{{$total_uses}}</h3>
 
-                <p>Bounce Rate</p>
+                <p>Total Tika Uses</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -55,15 +54,14 @@
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          @endcan
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>{{$total_expected}}</h3>
 
-                <p>User Registrations</p>
+                <p>Total Expected</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -72,8 +70,7 @@
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
+<!--           <div class="col-lg-3 col-6">
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3>65</h3>
@@ -85,7 +82,7 @@
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
+          </div> -->
           <!-- ./col -->
         </div>
           </section>
