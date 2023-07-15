@@ -11,6 +11,7 @@ use App\UnionStock;
 use App\UpozillaStockModel;
 use App\TikaUses;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class TikaStockController extends Controller
 {
@@ -38,6 +39,31 @@ class TikaStockController extends Controller
         return redirect()->route('wardStockShow')
 
                         ->with('message','Stock added successfully');
+        
+    }
+    public function wardStockView()
+    {
+        $ward_stocks = DB::table('ward_stocks')
+                    ->join('wards', 'ward_stocks.ward_id', '=', 'ward_stocks.id')
+                    ->get();
+        // $ward_stocks = WardStock::all();
+        return view('admin.stocks.ward-stock-view', compact('ward_stocks'));
+        
+    }
+    public function unionStockView()
+    {
+        $union_stocks = DB::table('union_stocks')
+                    ->join('unions', 'union_stocks.union_id', '=', 'unions.id')
+                    ->get();
+        return view('admin.stocks.union-stock-view', compact('union_stocks'));
+        
+    }
+    public function upozillaStockView()
+    {
+        $upozilla_stocks = DB::table('upozilla_stock_models')
+                    ->join('upozillas', 'upozilla_stock_models.upozilla_id', '=', 'upozillas.id')
+                    ->get();
+        return view('admin.stocks.upozilla-stock-view', compact('upozilla_stocks'));
         
     }
     public function unionStockShow()

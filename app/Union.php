@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Union extends Model
 {
-    //
+    protected $fillable = [
+
+        'name',
+
+    ];
 }

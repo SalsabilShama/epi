@@ -108,11 +108,11 @@
          
             </ul>
           </li>
-            <li class="nav-item">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Tika Stock
+                Ward Stock
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -120,7 +120,13 @@
               <li class="nav-item">
                 <a href="{{route('wardStockShow')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ward Stock</p>
+                  <p>Ward Stock Add</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('wardStockView')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ward Stock View</p>
                 </a>
               </li>
                <li class="nav-item">
@@ -130,9 +136,32 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="{{route('wardShow')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Ward</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Union Stock
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
                 <a href="{{route('unionStockShow')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Union Stock</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('unionStockView')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Union Stock View</p>
                 </a>
               </li>
                <li class="nav-item">
@@ -142,9 +171,32 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="{{route('unionShow')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Unions</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Upozilla Stock
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
                 <a href="{{route('upozillaStockShow')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Upozilla Stock</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('upozillaStockView')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Upozilla Stock View</p>
                 </a>
               </li>
                <li class="nav-item">
@@ -153,10 +205,16 @@
                   <p>Upozilla Uses</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('upozillaShow')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Upozillas</p>
+                </a>
+              </li>
          
             </ul>
           </li>
-           <li class="nav-item">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -180,6 +238,7 @@
          
             </ul>
           </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

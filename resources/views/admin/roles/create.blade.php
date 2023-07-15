@@ -73,7 +73,7 @@
             </div>
         </section>
     </div>
-     <div class="content-wrapper">
+<!--      <div class="content-wrapper">
     <div >
 
         <div >
@@ -93,10 +93,10 @@
         </div>
 
     </div>
+ -->
 
 
-
-    @if (count($errors) > 0)
+   <!--  @if (count($errors) > 0)
 
         <div >
 
@@ -168,5 +168,5 @@
 
 
 
-    </div>
+    </div> -->
 @endsection
