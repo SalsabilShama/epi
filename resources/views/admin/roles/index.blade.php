@@ -12,10 +12,11 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Role Management</h3>
-
+                @can('roles-add')
                 <div class="card-tools">
                     <a  href="{{ route('roles.create') }}"> Create New Role</a>
                 </div>
+                @endcan
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
@@ -39,8 +40,9 @@
                         <td>
 
                             <a class="btn btn-default btn-sm"  href="{{ route('roles.show',$role->id) }}">Show</a>
-
-                                <a class="btn btn-warning btn-sm"   href="{{ route('roles.edit',$role->id) }}">Edit</a>
+                            @can('roles-edit')
+                            <a class="btn btn-warning btn-sm"   href="{{ route('roles.edit',$role->id) }}">Edit</a>
+                            @endcan
 
                             @can('role-delete')
 

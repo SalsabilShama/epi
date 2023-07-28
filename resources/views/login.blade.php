@@ -34,7 +34,7 @@
     </div>
     <!-- preloader area end -->
     <!-- login area start -->
-    <div class="login-area login-bg">
+    <div class="login-area">
         <div class="container">
             <div class="login-box ptb--100">
 

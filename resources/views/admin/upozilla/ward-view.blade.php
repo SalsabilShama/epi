@@ -12,9 +12,11 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Ward Management</h3>
+                @can('wards-add')
                 <div class="card-tools">
                     <a  href="{{ route('wardAdd') }}"> Create New Ward</a>
                 </div>
+                @endcan
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
@@ -34,10 +36,11 @@
                         <td>{{ ++$key }}</td>
 
                         <td>{{ $ward->name }}</td>
-
+                        @can('wards-edit')
                         <td>
                             <a class="btn btn-warning btn-sm"   href="">Edit</a>
                         </td>
+                        @endcan
 
                     </tr>
 

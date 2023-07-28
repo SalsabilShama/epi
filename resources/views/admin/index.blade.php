@@ -12,10 +12,11 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Admin Management</h3>
-
+                @can('users-add')
                 <div class="card-tools">
                     <a  href="{{ route('admin.create') }}"> Create New Admin</a>
                 </div>
+                @endcan
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
@@ -40,8 +41,9 @@
                         <td> {{$admin->roles->pluck('name','name')->first()}}</td>
 
                         <td>
-
+                            @can('users-edit')
                             <a class="btn btn-warning btn-sm"   href="{{ route('admin.edit',$admin->id) }}">Edit</a>
+                            @endcan
                              <!-- <a class="btn btn-danger btn-sm"  href="{{ route('admin.delete',$admin->id) }}">Delete</a> -->
 
                         </td>
